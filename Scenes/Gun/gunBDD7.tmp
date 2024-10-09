@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv4i7enwxx83r"]
+
+[ext_resource type="Script" path="res://Scenes/Gun/gun.gd" id="1_1ktlj"]
+
+[node name="Gun" type="Polygon2D"]
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-39, -9, 49, -9, 49, 8, -20, 8, -20, 31, -39, 31)
+script = ExtResource("1_1ktlj")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(49, 0)
+gizmo_extents = 1.0

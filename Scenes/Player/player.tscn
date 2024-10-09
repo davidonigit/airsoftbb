@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://deqttyqgvt8os"]
+
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_bn34n"]
+[ext_resource type="PackedScene" uid="uid://so5ya7wechjd" path="res://Scenes/Gun/Pistol/pistol.tscn" id="2_wt5e6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sd22d"]
+radius = 18.0
+height = 186.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uickb"]
+radius = 94.0479
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 7
+script = ExtResource("1_bn34n")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-29, -183, 0, -200, 29, -183, 18, -157, 18, 0, -18, 0, -18, -157)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -92)
+shape = SubResource("CapsuleShape2D_sd22d")
+
+[node name="GunBag" type="Node2D" parent="."]
+position = Vector2(0, -117)
+
+[node name="Pistol" parent="GunBag" instance=ExtResource("2_wt5e6")]
+
+[node name="GrabArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrabArea"]
+position = Vector2(0, -92)
+shape = SubResource("CircleShape2D_uickb")
+
+[node name="TipLabel" type="Label" parent="."]
+offset_left = -46.0
+offset_top = -235.0
+offset_right = 45.0
+offset_bottom = -212.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Grab item"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="area_entered" from="GrabArea" to="." method="_on_grab_area_area_entered"]
+[connection signal="area_exited" from="GrabArea" to="." method="_on_grab_area_area_exited"]

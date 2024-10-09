@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://so5ya7wechjd"]
+
+[ext_resource type="PackedScene" uid="uid://bv4i7enwxx83r" path="res://Scenes/Gun/gun.tscn" id="1_cbocx"]
+[ext_resource type="Script" path="res://Scenes/Gun/Pistol/pistol.gd" id="2_vgk0e"]
+[ext_resource type="PackedScene" uid="uid://df314isn7nxur" path="res://Scenes/Magazine/PistolMagazine/pistol_magazine.tscn" id="3_1yi3k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vnic5"]
+size = Vector2(66, 33)
+
+[node name="Pistol" instance=ExtResource("1_cbocx")]
+offset = Vector2(30, 0)
+polygon = PackedVector2Array(31, -9, -10, -9, -12, -8, -13, -6, -13, 16, -1, 16, -1, 3, 3, 3, 5, 0, 31, 0)
+script = ExtResource("2_vgk0e")
+
+[node name="ShootPoint" parent="." index="0"]
+position = Vector2(61, -4)
+
+[node name="CollisionShape2D" parent="GrabArea" index="0" groups=["Guns"]]
+position = Vector2(35, 2.5)
+shape = SubResource("RectangleShape2D_vnic5")
+
+[node name="Magwell" parent="." index="3"]
+position = Vector2(23, 6)
+
+[node name="PistolMagazine" parent="Magwell" index="0" instance=ExtResource("3_1yi3k")]
+monitoring = true

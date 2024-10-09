@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhrxmptlpu4vr"]
+
+[ext_resource type="Script" path="res://Scenes/HUD/hud.gd" id="1_c1d2t"]
+
+[sub_resource type="Theme" id="Theme_boygr"]
+Label/colors/font_color = Color(1, 1, 1, 1)
+Label/font_sizes/font_size = 30
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_c1d2t")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 7.0
+offset_right = 265.0
+offset_bottom = 168.0
+theme = SubResource("Theme_boygr")
+theme_override_constants/separation = 0
+
+[node name="BBs" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Bullets: 0/0"
+
+[node name="Mode" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Mode: Single Shot"
+
+[node name="BBMass" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "BB Mass: 0,2g"
+
+[node name="HopUp" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Hop Up: "

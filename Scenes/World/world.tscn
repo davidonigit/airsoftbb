@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://d0exdq0k858j6"]
+
+[ext_resource type="Script" path="res://Scenes/World/world.gd" id="1_63qsa"]
+[ext_resource type="PackedScene" uid="uid://deqttyqgvt8os" path="res://Scenes/Player/player.tscn" id="2_88r0o"]
+[ext_resource type="PackedScene" uid="uid://skpys8s3ou8g" path="res://Scenes/Gun/Rifle/rifle.tscn" id="3_u3ye8"]
+[ext_resource type="PackedScene" uid="uid://df314isn7nxur" path="res://Scenes/Magazine/PistolMagazine/pistol_magazine.tscn" id="4_bklkd"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_okktc"]
+friction = 10.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ho44u"]
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_63qsa")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(13, 639)
+collision_layer = 2
+collision_mask = 0
+physics_material_override = SubResource("PhysicsMaterial_okktc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(0, 2)
+shape = SubResource("WorldBoundaryShape2D_ho44u")
+
+[node name="ColorRect" type="ColorRect" parent="Ground"]
+offset_left = -6103.0
+offset_top = 1.0
+offset_right = 20130.0
+offset_bottom = 41.0
+color = Color(1.14311e-07, 0.267167, 0.0694551, 1)
+
+[node name="BBs" type="Node" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_88r0o")]
+position = Vector2(13, 590)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(29, -571)
+zoom = Vector2(0.5, 0.5)
+process_callback = 0
+position_smoothing_enabled = true
+
+[node name="Rifle" parent="." instance=ExtResource("3_u3ye8")]
+position = Vector2(274, 562)
+
+[node name="PistolMagazine" parent="." instance=ExtResource("4_bklkd")]
+position = Vector2(-568, 568)
+
+[connection signal="shoot_bb" from="Player" to="." method="_on_player_shoot_bb"]

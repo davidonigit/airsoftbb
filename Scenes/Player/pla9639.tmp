@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://deqttyqgvt8os"]
+
+[ext_resource type="Script" path="res://Scenes/Player/player.gd" id="1_bn34n"]
+[ext_resource type="PackedScene" uid="uid://skpys8s3ou8g" path="res://Scenes/Gun/Rifle/rifle.tscn" id="2_ic1xq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sd22d"]
+radius = 18.0
+height = 186.0
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_bn34n")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+polygon = PackedVector2Array(-29, -183, 0, -200, 29, -183, 18, -157, 18, 0, -18, 0, -18, -157)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -92)
+shape = SubResource("CapsuleShape2D_sd22d")
+
+[node name="Rifle" parent="." instance=ExtResource("2_ic1xq")]
+position = Vector2(-17, -117)

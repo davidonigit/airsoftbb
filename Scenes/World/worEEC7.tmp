@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0exdq0k858j6"]
+
+[ext_resource type="PackedScene" uid="uid://bv4i7enwxx83r" path="res://Scenes/Gun/gun.tscn" id="1_8g02h"]
+[ext_resource type="Script" path="res://Scenes/World/world.gd" id="1_63qsa"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_okktc"]
+friction = 10.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p05va"]
+size = Vector2(3075, 20)
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_63qsa")
+
+[node name="Gun" parent="." instance=ExtResource("1_8g02h")]
+position = Vector2(41, 483)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(13, 639)
+physics_material_override = SubResource("PhysicsMaterial_okktc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1515.5, 0)
+shape = SubResource("RectangleShape2D_p05va")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(163, 321)
