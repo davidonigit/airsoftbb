@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://0s3vgfv4mjc4"]
+[gd_scene load_steps=5 format=3 uid="uid://0s3vgfv4mjc4"]
 
 [ext_resource type="PackedScene" uid="uid://cd8h6p8tmmdvc" path="res://Scenes/Magazine/magazine.tscn" id="1_g85r4"]
 [ext_resource type="Script" path="res://Scenes/Magazine/RifleMagazine/rifle_magazine.gd" id="2_os43s"]
+[ext_resource type="Texture2D" uid="uid://bwsybwrtjhd1g" path="res://Sprites/Guns/ak-magazine.png" id="3_x77s1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kpngq"]
 size = Vector2(28, 32)
@@ -9,9 +10,9 @@ size = Vector2(28, 32)
 [node name="RifleMagazine" instance=ExtResource("1_g85r4")]
 script = ExtResource("2_os43s")
 
-[node name="Polygon2D" parent="." index="0"]
-color = Color(1, 0, 0, 1)
-polygon = PackedVector2Array(6, -7, -1, 10, -11, 10, -4, -7)
+[node name="Sprite2D" parent="." index="0"]
+scale = Vector2(1.7, 1.7)
+texture = ExtResource("3_x77s1")
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(-1, 1)

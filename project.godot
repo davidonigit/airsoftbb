@@ -22,6 +22,7 @@ Globals="*res://Globals/globals.gd"
 
 [display]
 
+window/size/mode=2
 window/stretch/mode="viewport"
 
 [input]

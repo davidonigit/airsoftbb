@@ -1,4 +1,4 @@
-extends Polygon2D
+extends RigidBody2D
 class_name Gun
 
 @onready var magwell = $Magwell
@@ -19,6 +19,7 @@ var collected:bool = false
 func _process(delta):
 	if collected:
 		look_at(get_global_mouse_position())
+		position = Vector2.ZERO
 		direction = (get_global_mouse_position()-global_position).normalized()
 		if direction.x < 0:
 			scale = Vector2(1,-1)
@@ -54,6 +55,7 @@ func grab_gun():
 func drop_gun():
 	collected = false
 	$GrabArea.set_collision_layer_value(3, true)
+	linear_velocity = Vector2.ZERO
 
 
 func can_shoot():

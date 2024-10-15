@@ -84,8 +84,10 @@ func drop_gun():
 	var gun_pos = gun.global_position
 	gun_bag.remove_child(gun)
 	get_parent().add_child(gun)
-	gun.drop_gun()
 	gun.global_position = gun_pos
+	gun.drop_gun()
+	var dir = gun.get_shoot_direction()
+	gun.apply_central_impulse(dir*100)
 	gun = null
 	has_gun = false
 

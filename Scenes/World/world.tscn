@@ -433,22 +433,22 @@ position = Vector2(7673, -833)
 position = Vector2(7582, -605)
 
 [node name="Balloon14" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(7912, -982)
+position = Vector2(6572, -110)
 
 [node name="Balloon21" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(8189, -980)
+position = Vector2(6844, -113)
 
 [node name="Balloon15" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(8636, -747)
+position = Vector2(8651, -747)
 
 [node name="Balloon26" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(8929, -760)
+position = Vector2(8899, -757)
 
 [node name="Balloon27" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(8784, -760)
+position = Vector2(8781, -613)
 
 [node name="Balloon10" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(8430, -981)
+position = Vector2(7469, 215)
 
 [node name="Balloon11" parent="Balloons" instance=ExtResource("3_nraeo")]
 position = Vector2(10322, 471)
@@ -479,7 +479,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 10.0
 
 [node name="Rifle" parent="." instance=ExtResource("3_u3ye8")]
-position = Vector2(274, 562)
+position = Vector2(589, 405)
 
 [node name="PistolMagazine" parent="." instance=ExtResource("4_bklkd")]
 position = Vector2(4463, 13)
