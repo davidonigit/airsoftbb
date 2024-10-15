@@ -29,8 +29,10 @@ func update_bb_mass():
 func update_hop_up():
 	hop_up.text = "Hop Up: "+str(Globals.hop_up)
 
+
 func update_balloons():
 	balloons_popped.text = "Balloons Popped: "+str(Globals.balloons_popped)+"/"+str(Globals.balloons_total)
+
 
 func update_stat_text():
 	update_bbs()
@@ -38,6 +40,7 @@ func update_stat_text():
 	update_bb_mass()
 	update_hop_up()
 	update_balloons()
+
 
 func circuit_finished():
 	$MainHUD.hide()

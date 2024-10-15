@@ -66,7 +66,6 @@ func can_shoot():
 func shoot():
 	magazine.current_bb_number -= 1
 	Globals.bbs_amount = magazine.current_bb_number
-	print('bbs_left ', magazine.current_bb_number)
 	shot_delay = true
 	$ShotDelay.start()
 
@@ -74,7 +73,6 @@ func shoot():
 func change_hop_up(value):
 	hop_up = clampf(hop_up+value, 0.0, 0.01)
 	Globals.hop_up = hop_up
-	print('hop_up ', hop_up)
 
 
 func _on_shot_delay_timeout():
