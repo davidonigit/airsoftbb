@@ -1,9 +1,10 @@
 extends CanvasLayer
 
-@onready var bbs = $VBoxContainer/BBs
-@onready var mode = $VBoxContainer/Mode
-@onready var bb_mass = $VBoxContainer/BBMass
-@onready var hop_up = $VBoxContainer/HopUp
+@onready var bbs = $MainHUD/VBoxContainer/BBs
+@onready var mode = $MainHUD/VBoxContainer/Mode
+@onready var bb_mass = $MainHUD/VBoxContainer/BBMass
+@onready var hop_up = $MainHUD/VBoxContainer/HopUp
+@onready var balloons_popped = $MainHUD/VBoxContainer2/BalloonsPopped
 
 
 func _ready():
@@ -28,9 +29,24 @@ func update_bb_mass():
 func update_hop_up():
 	hop_up.text = "Hop Up: "+str(Globals.hop_up)
 
+func update_balloons():
+	balloons_popped.text = "Balloons Popped: "+str(Globals.balloons_popped)+"/"+str(Globals.balloons_total)
 
 func update_stat_text():
 	update_bbs()
 	update_mode()
 	update_bb_mass()
 	update_hop_up()
+	update_balloons()
+
+func circuit_finished():
+	$MainHUD.hide()
+	$FinishPanel/VBoxContainer/BalloonsPopped.text = balloons_popped.text
+	$FinishPanel.show()
+
+
+func _on_restart_pressed():
+	get_tree().change_scene_to_file("res://Scenes/World/world.tscn")
+	$MainHUD.show()
+	$FinishPanel.hide()
+	Globals.balloons_popped = 0

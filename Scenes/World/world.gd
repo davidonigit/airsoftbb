@@ -3,9 +3,15 @@ extends Node2D
 var bb_scene:PackedScene = load("res://Scenes/BB/bb.tscn")
 @onready var bbs = $BBs
 @onready var camera_2d = $Player/Camera2D
+@onready var balloons = $Balloons
 
 var bb_trajectories = []
 var current_bb = null
+
+func _ready():
+	Globals.balloons_total = balloons.get_child_count()
+	print(Globals.balloons_total)
+
 
 func _process(delta):
 	if current_bb != null:
@@ -33,4 +39,7 @@ func _on_player_shoot_bb(pos, dir, spring_force, bb_mass, hop_up):
 func _on_bb_collide(bb):
 	if bb == current_bb:
 		current_bb = null
-	#$Camera2D.position.x = gun.position.x
+
+
+func _on_finish_area_circuit_finished():
+	get_tree().paused = true

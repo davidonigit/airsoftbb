@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0exdq0k858j6"]
+[gd_scene load_steps=12 format=3 uid="uid://d0exdq0k858j6"]
 
 [ext_resource type="Script" path="res://Scenes/World/world.gd" id="1_63qsa"]
 [ext_resource type="PackedScene" uid="uid://deqttyqgvt8os" path="res://Scenes/Player/player.tscn" id="2_88r0o"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://dc5bpybdfgu8d" path="res://Scenes/Balloon/balloon.tscn" id="3_nraeo"]
 [ext_resource type="PackedScene" uid="uid://skpys8s3ou8g" path="res://Scenes/Gun/Rifle/rifle.tscn" id="3_u3ye8"]
 [ext_resource type="PackedScene" uid="uid://df314isn7nxur" path="res://Scenes/Magazine/PistolMagazine/pistol_magazine.tscn" id="4_bklkd"]
-[ext_resource type="PackedScene" uid="uid://0s3vgfv4mjc4" path="res://Scenes/Magazine/RifleMagazine/rifle_magazine.tscn" id="7_8nd3f"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_okktc"]
 friction = 10.0
@@ -381,89 +380,47 @@ position = Vector2(10921, 230)
 [node name="Balloon" parent="Balloons" instance=ExtResource("3_nraeo")]
 position = Vector2(795, 33)
 
-[node name="Balloon16" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(1053, 30)
-
-[node name="Balloon17" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(924, -153)
-
 [node name="Balloon2" parent="Balloons" instance=ExtResource("3_nraeo")]
 position = Vector2(2310, 464)
 
 [node name="Balloon3" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(3027, -87)
-
-[node name="Balloon18" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(3024, -254)
-
-[node name="Balloon19" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(3024, -424)
+position = Vector2(2657, -79)
 
 [node name="Balloon4" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(4314, -379)
-
-[node name="Balloon29" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(4129, -775)
+position = Vector2(4137, -273)
 
 [node name="Balloon5" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(4095, -261)
+position = Vector2(3918, -155)
 
 [node name="Balloon6" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(5662, -264)
+position = Vector2(5631, -114)
 
 [node name="Balloon7" parent="Balloons" instance=ExtResource("3_nraeo")]
 position = Vector2(5433, -578)
-
-[node name="Balloon28" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(5310, -695)
-
-[node name="Balloon20" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(5654, -403)
 
 [node name="Balloon8" parent="Balloons" instance=ExtResource("3_nraeo")]
 position = Vector2(7634, 216)
 
 [node name="Balloon9" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(7790, -618)
-
-[node name="Balloon24" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(7673, -833)
-
-[node name="Balloon25" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(7582, -605)
+position = Vector2(7501, -588)
 
 [node name="Balloon14" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(7912, -982)
-
-[node name="Balloon21" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(8189, -980)
+position = Vector2(8349, -766)
 
 [node name="Balloon15" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(8636, -747)
-
-[node name="Balloon26" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(8929, -760)
-
-[node name="Balloon27" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(8784, -760)
+position = Vector2(8976, -596)
 
 [node name="Balloon10" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(8430, -981)
+position = Vector2(8009, -776)
 
 [node name="Balloon11" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(10322, 471)
+position = Vector2(8710, 498)
 
 [node name="Balloon12" parent="Balloons" instance=ExtResource("3_nraeo")]
 position = Vector2(10748, 473)
 
 [node name="Balloon13" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(10563, -309)
-
-[node name="Balloon22" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(10677, -204)
-
-[node name="Balloon23" parent="Balloons" instance=ExtResource("3_nraeo")]
-position = Vector2(10452, -197)
+position = Vector2(10365, 48)
 
 [node name="BBs" type="Node" parent="."]
 
@@ -482,16 +439,16 @@ position_smoothing_speed = 10.0
 position = Vector2(274, 562)
 
 [node name="PistolMagazine" parent="." instance=ExtResource("4_bklkd")]
-position = Vector2(4463, 13)
+position = Vector2(2320, 268)
+
+[node name="PistolMagazine4" parent="." instance=ExtResource("4_bklkd")]
+position = Vector2(249, 517)
 
 [node name="PistolMagazine2" parent="." instance=ExtResource("4_bklkd")]
 position = Vector2(6576, 425)
 
 [node name="PistolMagazine3" parent="." instance=ExtResource("4_bklkd")]
-position = Vector2(8144, -167)
-
-[node name="RifleMagazine" parent="." instance=ExtResource("7_8nd3f")]
-position = Vector2(7664, -25)
+position = Vector2(8138, -195)
 
 [connection signal="circuit_finished" from="Areas/FinishArea" to="." method="_on_finish_area_circuit_finished"]
 [connection signal="shoot_bb" from="Player" to="." method="_on_player_shoot_bb"]

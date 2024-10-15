@@ -19,11 +19,15 @@ var backspin_drag:float = 0.004
 signal bb_collide
 
 func _physics_process(delta):
-	if get_colliding_bodies() != []:
+	var collision = get_colliding_bodies()
+	if collision != []:
 		pos_final = global_position.x
-		print("DISTANCIA ", str((pos_final-pos_inicial)/PIXEL_TO_CM).pad_decimals(2), ' metros')
+		#print("DISTANCIA ", str((pos_final-pos_inicial)/PIXEL_TO_CM).pad_decimals(2), ' metros')
+		if collision[0] is Balloon:
+			collision[0].pop()
 		bb_collide.emit(self)
-		queue_free()
+		
+		#queue_free()
 	
 	if is_shoot:
 		last_point = global_position

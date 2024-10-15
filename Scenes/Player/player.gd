@@ -1,14 +1,15 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var tip_label = $TipLabel
 @onready var gun_bag = $GunBag
 var gun
  
 const SPEED = 500.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -550.0
 var has_gun:bool = false
 
-var item_to_grab
+var item_to_grab = []
 
 signal shoot_bb(pos, dir)
 
@@ -17,19 +18,17 @@ func _ready():
 	gun = gun_bag.get_child(0)
 	if gun != null:
 		gun.grab_gun()
-		print('grab gun')
 		has_gun = true
 		tip_label.hide()
 	Hud.update_stat_text()
 
 func _physics_process(delta):
-	if Input.is_action_just_pressed("grab_item") and item_to_grab:
-		print('grab')
-		if item_to_grab is Gun:
-			grab_gun(item_to_grab)
-		elif item_to_grab is Magazine:
-			if item_to_grab.type == gun.magazine_type:
-				grab_magazine(item_to_grab)
+	if Input.is_action_just_pressed("grab_item") and !item_to_grab.is_empty():
+		if item_to_grab[0] is Gun:
+			grab_gun(item_to_grab[0])
+		elif item_to_grab[0] is Magazine:
+			if item_to_grab[0].type == gun.magazine_type:
+				grab_magazine(item_to_grab[0])
 			
 	if not is_on_floor():
 		velocity += get_gravity() * delta
@@ -70,7 +69,6 @@ func shoot():
 
 
 func grab_gun(new_gun):
-	print('inside grab gun')
 	if gun_bag.get_child_count() > 0:
 		drop_gun()
 	new_gun.get_parent().remove_child(new_gun)
@@ -103,17 +101,27 @@ func grab_magazine(magazine):
 
 func _on_grab_area_area_entered(area):
 	if area.get_parent() is Gun:
-		if area.get_parent() != gun_bag.get_child(0):
-			item_to_grab = area.get_parent()
-			print('gun on ground ', item_to_grab)
-			tip_label.show()
+		item_to_grab.push_front(area.get_parent())
 	if area is Magazine:
-		print('mag on ground ', area)
-		if area.type == gun.magazine_type:
-			item_to_grab = area
-			tip_label.show()
+		item_to_grab.push_front(area)
+	change_tip_label()
 
 
 func _on_grab_area_area_exited(area):
-	item_to_grab = null
-	tip_label.hide()
+	item_to_grab.pop_front()
+	if item_to_grab.is_empty():
+		tip_label.hide()
+	else:
+		change_tip_label()
+
+
+func change_tip_label():
+	if gun:
+		if item_to_grab[0] is Gun:
+			tip_label.text = 'Grab '+str(item_to_grab[0].model)
+		elif item_to_grab[0] is Magazine:
+			if item_to_grab[0].type == gun.magazine_type:
+				tip_label.text = 'Grab '+str(item_to_grab[0].type)+' magazine'
+			else:
+				tip_label.text = str(item_to_grab[0].type)+' magazine'
+		tip_label.show()

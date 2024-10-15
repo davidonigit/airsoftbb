@@ -12,7 +12,7 @@ script = ExtResource("2_utss8")
 [node name="Polygon2D" parent="." index="0"]
 position = Vector2(0, 0)
 color = Color(1, 0, 0, 1)
-polygon = PackedVector2Array(-2, -3, 2, -3, 3, 13, -3, 13)
+polygon = PackedVector2Array(-3, -6, 3, -6, 4, 13, -4, 13)
 
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(1, 3)

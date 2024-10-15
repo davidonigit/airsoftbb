@@ -26,3 +26,13 @@ var hop_up = 0:
 	set(value):
 		hop_up = value
 		stat_change.emit()
+
+var balloons_popped = 0:
+	set(value):
+		balloons_popped = value
+		stat_change.emit()
+
+var balloons_total = 0:
+	set(value):
+		balloons_total = value
+		stat_change.emit()
